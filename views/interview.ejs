@@ -1,0 +1,63 @@
+<h1 class = "col-sm-4">
+    Add New Interview Here
+</h1>
+
+<form id = "add-interview-form" action="/interviews/addInterview" method="POST">
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputName">Company</label>
+            <input type="text" name="company" placeholder="Company Name" id = "inputName" class = "form-control"required>            
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputPackage">Package</label>
+            <input type="text" name="package" placeholder="Package in LPA" id = "inputPackage" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputDate">Date</label>
+            <input type="date" name="date" placeholder="Date of visit" id = "inputDate" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <button type = "submit" class="btn btn-primary">Add New Interview</button>
+        </div>
+    </div>
+</form>
+
+
+
+    
+    <table class="table">
+        <thead class = "thead-dark">
+          <tr>
+            <th scope="col">S. No</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Package</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+            <%if(interviews.length >0){%>
+                <%for(let i=0;i<interviews.length;i++){%>
+                    <tr>
+                        <th scope="row"><%= i+1%></th>
+                        <td><a href="/interviews/<%= interviews[i]._id%>"><%= interviews[i].company %></a></td>
+                        <td><%= interviews[i].package %></td>
+                        <td><%= interviews[i].date %></td>
+                    </tr>
+                <%}%>
+                
+            <%}else{%>
+                
+                <h3>No data to display</h3>
+            <%}%>
+        </tbody>
+    
+    </table>
+
+<script src="/js/add_interview.js"></script>

@@ -1,0 +1,89 @@
+<h1 class = "col-sm-4">
+    Add new Student Here
+</h1>
+
+<form id = "add-student-form" action="/students/addStudent" method="POST">
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputName">Name</label>
+            <input type="text" name="name" placeholder="Name" id = "inputName" class = "form-control"required>            
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputBatch">Batch</label>
+            <input type="text" name="batch" placeholder="Batch" id = "inputBatch" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputCollege">College</label>
+            <input type="text" name="college" placeholder="College" id = "inputCollege" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputDSA">DSA</label>
+            <input type="number" name="DSA" placeholder="DSA" id = "inputDSA" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputWebD">WebD</label>
+            <input type="number" name="WebD" placeholder="WebD" id = "inputWebD" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputReact">React</label>
+            <input type="number" name="React" placeholder="React" id = "inputReact" class="form-control" required>
+        </div>
+    </div>
+    <div class = "form-group">
+        <div class = "col-sm-4">
+            <label for="inputStatus">Status</label>
+            <input type="text" name="status" placeholder="Status" id = "inputStatus" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <button type = "submit" class="btn btn-primary">Add New Student</button>
+        </div>
+    </div>
+</form>
+
+
+
+    
+    <table class="table">
+        <thead class = "thead-dark">
+          <tr>
+            <th scope="col">S. No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Batch</th>
+            <th scope="col">College</th>
+            <th scope="col">DSA Score</th>
+            <th scope="col">WebD Score</th>
+            <th scope="col">React Score</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <%for(let i=0;i<students.length;i++){%>
+                <tr>
+                    <th scope="row"><%= i+1%></th>
+                    <td><%= students[i].name %></td>
+                    <td><%= students[i].batch %></td>
+                    <td><%= students[i].college %></td>
+                    <td><%= students[i].course.DSA %></td>
+                    <td><%= students[i].course.WebD %></td>
+                    <td><%= students[i].course.React %></td>
+                    <td><%= students[i].status %></td>
+                </tr>
+            <%}%>
+        </tbody>
+    
+    </table>
+
+<script src="/js/add_student.js"></script>

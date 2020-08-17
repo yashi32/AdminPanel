@@ -1,0 +1,45 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-end">
+        <%if(locals.employee){%>
+         <div class="w-100 order-1 order-md-0 dual-collapse2">
+            <form action="/students/getAllStudents" method="GET">
+                <div class="col-sm-3">
+                    <button class="btn btn-primary btn-block">Students List</button>
+                </div>
+            </form>
+
+             <br>
+
+             <form action="/interviews/getAllInterviews" method="GET">
+                <div class="col-sm-3">
+                    <button class="btn btn-primary btn-block">Interviews List</button>
+                </div>
+            </form>
+            <br>
+            
+         </div>
+        
+            <ul class="nav navbar-nav navbar-right">
+            
+
+            <li>
+                <p class="navbar-brand"><%= employee.name%></p>
+            </li>    
+            <li>
+                <a class="navbar-brand" href="/users/sign-out">Sign Out</a>
+            </li>
+            <!-- <li>
+                <a class="navbar-brand" href="/users/reset-password-signed-in">Reset Password</a>
+            </li> -->
+        <%}else{%>
+            <li>
+                <a class="navbar-brand" href="/users/sign-in">Sign In</a>
+            </li>
+            <li>
+                <a class="navbar-brand"href="/users/sign-up">Sign Up</a>
+            </li>
+        <%}%>
+        </ul>   
+    </div>
+    </nav>
+</header>
